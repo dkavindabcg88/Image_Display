@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Image from QR Code</title>
+</head>
+<body>
+    <h1>Display Image from QR Code</h1>
+
+    <!-- Display the image -->
+    <img id="displayedImage" src="" alt="Selected Image">
+
+    <script>
+        // JavaScript function to update the image source based on the provided URL
+        function displayImageFromURL() {
+            // Get the QR code content from the query string parameter named 'qr'
+            var urlParams = new URLSearchParams(window.location.search);
+            var qrContent = urlParams.get('qr');
+
+            // Update the image source
+            if (qrContent) {
+                document.getElementById("displayedImage").src = qrContent;
+            } else {
+                alert("QR code content not provided.");
+            }
+        }
+
+        // Call the function when the page loads
+        displayImageFromURL();
+    </script>
+</body>
+</html>
